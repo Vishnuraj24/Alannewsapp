@@ -11,7 +11,7 @@ const CustomAppBar = styled(AppBar)({
   background: "#333",
 });
 
-function Header() {
+function Header({ withLogoutButton = false, onLogout, emailname = "" }) {
   return (
     <CustomAppBar position="static">
       <Toolbar>
@@ -23,10 +23,23 @@ function Header() {
         >
           <MenuIcon />
         </IconButton>
+
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           ALAN AI NEWS
         </Typography>
-        <Button color="inherit">Login</Button>
+
+        {emailname ? ( // Conditionally render welcome message with username
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Welcome, {emailname}!
+          </Typography>
+        ) : (
+          <Typography></Typography>
+        )}
+        {withLogoutButton && ( // Conditionally render logout button
+          <Button color="inherit" onClick={onLogout}>
+            Logout
+          </Button>
+        )}
       </Toolbar>
     </CustomAppBar>
   );
