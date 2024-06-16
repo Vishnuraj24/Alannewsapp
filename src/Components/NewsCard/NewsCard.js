@@ -1,13 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import {
-  Card,
-  CardActions,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Button,
-  Typography,
-} from "@mui/material";
+import { CardActionArea, CardContent, Button, Typography } from "@mui/material";
 import { StyledCard, Media, Details, Title, CardActionsStyled } from "./styles";
 
 const NewsCard = ({
